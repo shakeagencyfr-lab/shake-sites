@@ -16,7 +16,7 @@ Pipeline **SerpApi → API Anthropic**, avis Google synchronisés, blog auto-pub
    |-----|--------|
    | `SERPAPI_KEY` | ta clé serpapi.com |
    | `ANTHROPIC_API_KEY` | ta clé console.anthropic.com |
-   | `ANTHROPIC_MODEL` | `claude-sonnet-4-6` (optionnel) |
+   | `ANTHROPIC_MODEL` | `claude-sonnet-5` (optionnel) |
 4. Redeploy.
 
 > Sans clés, l'app tourne en **mode démo** (données Comptoir Sauvage) — pratique pour montrer le concept avant de brancher les API.
