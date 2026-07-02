@@ -25,7 +25,7 @@ export async function POST(req) {
   const { query } = await req.json().catch(() => ({}));
   const SERP = process.env.SERPAPI_KEY;
   const ANTH = process.env.ANTHROPIC_API_KEY;
-  const MODEL = process.env.ANTHROPIC_MODEL || "claude-sonnet-4-6";
+  const MODEL = process.env.ANTHROPIC_MODEL || "claude-sonnet-5";
 
   // Pas de clés → démo, pour que le déploiement marche tout de suite
   if (!SERP || !ANTH) {
