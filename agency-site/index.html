@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Shake — Votre visibilité locale en pilote automatique</title>
+    <meta
+      name="description"
+      content="Shake est la plateforme tout-en-un propulsée par l'IA qui gère vos avis Google, votre SEO local et votre présence sur les moteurs IA — de manière entièrement automatisée. Essai gratuit 30 jours."
+    />
+    <meta name="theme-color" content="#0b0b0f" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b0b0f'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='%2300d4a8'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E"
+    />
+    <meta property="og:title" content="Shake — Visibilité locale propulsée par l'IA" />
+    <meta property="og:description" content="Avis Google, SEO local, moteurs IA, réseaux sociaux et agent conversationnel — en pilote automatique." />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- ============ PRELOADER ============ -->
+    <div class="preloader" id="preloader">
+      <div class="preloader__inner">
+        <div class="preloader__mark" aria-hidden="true">✦</div>
+        <div class="preloader__word">
+          <span>S</span><span>h</span><span>a</span><span>k</span><span>e</span>
+        </div>
+        <div class="preloader__count"><span id="count">0</span><i>%</i></div>
+      </div>
+      <div class="preloader__bar"><i id="preBar"></i></div>
+    </div>
+
+    <!-- ============ CUSTOM CURSOR ============ -->
+    <div class="cursor" id="cursor" aria-hidden="true">
+      <div class="cursor__dot"></div>
+      <div class="cursor__ring"></div>
+    </div>
+
+    <!-- ============ SCROLL PROGRESS ============ -->
+    <div class="scrollbar" id="scrollbar" aria-hidden="true"></div>
+
+    <!-- ============ NAV ============ -->
+    <header class="nav" id="nav">
+      <a class="nav__logo" href="#top" data-cursor="hover">
+        <span class="nav__mark">✦</span> Shake
+      </a>
+      <nav class="nav__links">
+        <a href="#produit" data-cursor="hover">Produit</a>
+        <a href="#agents" data-cursor="hover">Agents IA</a>
+        <a href="#avis" data-cursor="hover">Avis</a>
+        <a href="#tarifs" data-cursor="hover">Tarifs</a>
+      </nav>
+      <a class="nav__cta magnetic" href="#tarifs" data-cursor="hover">
+        <span>Essai gratuit</span>
+      </a>
+      <button class="nav__burger" id="burger" aria-label="Menu"><i></i><i></i></button>
+    </header>
+
+    <main id="top">
+      <!-- ============ HERO ============ -->
+      <section class="hero" id="hero">
+        <div class="hero__bg" aria-hidden="true">
+          <div class="orb orb--violet" data-parallax="0.2"></div>
+          <div class="orb orb--teal" data-parallax="0.35"></div>
+          <div class="hero__grid"></div>
+        </div>
+        <div class="hero__inner">
+          <div class="hero__eyebrow reveal-up">
+            <span class="pulse"></span> Visibilité locale · propulsée par l'IA
+          </div>
+          <h1 class="hero__title">
+            <span class="line"><span class="w">Votre</span> <span class="w">visibilité</span></span>
+            <span class="line"><span class="w">locale,</span> <span class="w grad">en&nbsp;pilote</span></span>
+            <span class="line"><span class="w grad">automatique.</span></span>
+          </h1>
+          <p class="hero__sub reveal-up">
+            Shake gère vos <b>avis Google</b>, votre <b>SEO local</b> et votre présence sur les
+            <b>moteurs IA</b> — ChatGPT, Perplexity, Gemini, Grok — de manière entièrement automatisée.
+          </p>
+          <div class="hero__actions reveal-up">
+            <a href="#tarifs" class="btn btn--primary magnetic" data-cursor="hover"><span>Démarrer gratuitement</span></a>
+            <a href="#produit" class="btn btn--ghost magnetic" data-cursor="hover"><span>Voir comment ça marche</span></a>
+          </div>
+          <div class="hero__meta reveal-up">
+            <span>30 jours d'essai</span>
+            <span>Sans engagement</span>
+            <span>Dès 19€/mois</span>
+          </div>
+        </div>
+        <div class="hero__scroll" aria-hidden="true"><span>Scroll</span><i></i></div>
+      </section>
+
+      <!-- ============ MARQUEE ENGINES ============ -->
+      <section class="marquee-sec">
+        <div class="marquee-sec__label">Référencé partout où vos clients cherchent</div>
+        <div class="marquee" data-marquee>
+          <div class="marquee__track">
+            <span>Google</span><i>✦</i><span>ChatGPT</span><i>✦</i><span>Perplexity</span><i>✦</i>
+            <span>Gemini</span><i>✦</i><span>Grok</span><i>✦</i><span>Instagram</span><i>✦</i>
+            <span>Facebook</span><i>✦</i><span>WhatsApp</span><i>✦</i><span>Messenger</span><i>✦</i>
+            <span>Google</span><i>✦</i><span>ChatGPT</span><i>✦</i><span>Perplexity</span><i>✦</i>
+            <span>Gemini</span><i>✦</i><span>Grok</span><i>✦</i><span>Instagram</span><i>✦</i>
+            <span>Facebook</span><i>✦</i><span>WhatsApp</span><i>✦</i><span>Messenger</span><i>✦</i>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MANIFESTO (word-by-word reveal) ============ -->
+      <section class="manifesto" id="produit">
+        <p class="manifesto__text" data-words>
+          Vos clients ne cherchent plus seulement sur Google. Ils demandent à l'IA. Shake produit,
+          publie et optimise votre contenu <em>24h/24</em> pour vous rendre visible sur les moteurs de
+          recherche <em>et</em> les intelligences artificielles génératives.
+        </p>
+      </section>
+
+      <!-- ============ HORIZONTAL SCROLL — AGENTS IA ============ -->
+      <section class="horizon" id="agents">
+        <div class="horizon__pin" data-horizon>
+          <div class="horizon__head">
+            <div class="section-eyebrow">Vos agents IA</div>
+            <h2 class="section-title">Trois agents.<br />Zéro effort.</h2>
+          </div>
+
+          <article class="panel" data-panel>
+            <div class="panel__num">01</div>
+            <div class="panel__body">
+              <div class="panel__tag">Agent SEO</div>
+              <h3 class="panel__title">Des articles qui vous <span class="grad">référencent</span></h3>
+              <p class="panel__desc">
+                L'agent SEO rédige et publie des articles de blog optimisés pour le référencement local.
+                Vous montez dans Google sur les requêtes de votre zone, en continu.
+              </p>
+              <ul class="panel__list">
+                <li>Contenu optimisé recherche locale</li>
+                <li>Publication automatique 24/7</li>
+                <li>Mots-clés de votre métier &amp; ville</li>
+              </ul>
+            </div>
+            <div class="panel__visual panel__visual--seo" data-zoom>
+              <div class="mock-serp">
+                <div class="mock-serp__bar"><i></i> plombier lyon 7</div>
+                <div class="mock-serp__row is-top"><span class="rank">1</span><div><b>Votre établissement</b><small>votre-site.fr · ★ 4,9 · 128 avis</small></div></div>
+                <div class="mock-serp__row"><span class="rank">2</span><div><b>Concurrent</b><small>concurrent.fr</small></div></div>
+                <div class="mock-serp__row"><span class="rank">3</span><div><b>Annuaire</b><small>pages-locales.fr</small></div></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel" data-panel>
+            <div class="panel__num">02</div>
+            <div class="panel__body">
+              <div class="panel__tag">Agent Social</div>
+              <h3 class="panel__title">Vos avis deviennent des <span class="grad">posts</span></h3>
+              <p class="panel__desc">
+                Chaque nouvel avis client est transformé automatiquement en publication Instagram,
+                Facebook et Google. Votre communauté vit, sans que vous touchiez à rien.
+              </p>
+              <ul class="panel__list">
+                <li>Avis → posts Instagram &amp; Facebook</li>
+                <li>Visuels générés automatiquement</li>
+                <li>Calendrier de publication piloté par l'IA</li>
+              </ul>
+            </div>
+            <div class="panel__visual panel__visual--social" data-zoom>
+              <div class="mock-post">
+                <div class="mock-post__head"><span class="ava">S</span><div><b>votre_commerce</b><small>à l'instant</small></div></div>
+                <div class="mock-post__stars">★★★★★</div>
+                <p class="mock-post__quote">« Accueil au top, je recommande les yeux fermés. »</p>
+                <div class="mock-post__foot">— Camille R. · via Google</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel" data-panel>
+            <div class="panel__num">03</div>
+            <div class="panel__body">
+              <div class="panel__tag">Agent GEO</div>
+              <h3 class="panel__title">Recommandé par les <span class="grad">IA</span></h3>
+              <p class="panel__desc">
+                Le GEO (Generative Engine Optimization) vous rend citable par ChatGPT, Perplexity,
+                Gemini et Grok. Quand un client demande « le meilleur près de chez moi », c'est vous.
+              </p>
+              <ul class="panel__list">
+                <li>Optimisé pour les moteurs génératifs</li>
+                <li>Données structurées &amp; à jour</li>
+                <li>Présence sur ChatGPT, Perplexity, Gemini, Grok</li>
+              </ul>
+            </div>
+            <div class="panel__visual panel__visual--geo" data-zoom>
+              <div class="mock-chat">
+                <div class="mock-chat__q">Un bon restaurant italien vers la Croix-Rousse ?</div>
+                <div class="mock-chat__a">
+                  <span class="mock-chat__ai">✦ IA</span>
+                  Je recommande <b>votre établissement</b>, très bien noté (4,9★) pour ses pâtes fraîches et son accueil…
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <div class="horizon__progress"><i data-horizon-bar></i></div>
+        </div>
+      </section>
+
+      <!-- ============ PRODUCT / AUTO-ZOOM SHOWCASE ============ -->
+      <section class="showcase" id="showcase">
+        <div class="showcase__sticky">
+          <div class="showcase__copy">
+            <div class="section-eyebrow">La plateforme</div>
+            <h2 class="section-title">Tout votre marketing local,<br />dans une seule app.</h2>
+            <div class="showcase__steps">
+              <div class="show-step" data-show-step="0">
+                <span class="show-step__k">01</span>
+                <div><b>Un mini-site professionnel offert</b><p>Prêt à l'emploi, connectez votre propre nom de domaine.</p></div>
+              </div>
+              <div class="show-step" data-show-step="1">
+                <span class="show-step__k">02</span>
+                <div><b>Collecte d'avis automatisée</b><p>Demande d'avis Google envoyée après chaque prestation.</p></div>
+              </div>
+              <div class="show-step" data-show-step="2">
+                <span class="show-step__k">03</span>
+                <div><b>Contenu SEO, Social &amp; GEO</b><p>Produit et publié 24h/24 par vos agents IA.</p></div>
+              </div>
+              <div class="show-step" data-show-step="3">
+                <span class="show-step__k">04</span>
+                <div><b>Agent conversationnel IA</b><p>Répond à vos clients sur le site, WhatsApp, Insta, Messenger.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="showcase__device" data-zoom-device>
+            <div class="phone">
+              <div class="phone__notch"></div>
+              <div class="phone__screen">
+                <div class="app-screen" data-app-screen="0">
+                  <div class="app-top">votre-commerce.fr</div>
+                  <div class="app-hero">Bienvenue chez<br /><b>Votre Commerce</b></div>
+                  <div class="app-badge">★ 4,9 · 128 avis Google</div>
+                  <div class="app-cta">Réserver</div>
+                </div>
+                <div class="app-screen" data-app-screen="1">
+                  <div class="app-title">Nouvel avis ✦</div>
+                  <div class="app-review"><span class="s">★★★★★</span><p>« Service impeccable ! »</p><small>Camille · il y a 2 min</small></div>
+                  <div class="app-review dim"><span class="s">★★★★★</span><p>« Je reviendrai. »</p><small>Karim · hier</small></div>
+                </div>
+                <div class="app-screen" data-app-screen="2">
+                  <div class="app-title">Publications IA</div>
+                  <div class="app-grid"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                  <div class="app-note">3 posts programmés cette semaine</div>
+                </div>
+                <div class="app-screen" data-app-screen="3">
+                  <div class="app-title">Assistant IA</div>
+                  <div class="app-bubble in">Bonjour, êtes-vous ouverts dimanche ?</div>
+                  <div class="app-bubble out">Oui, de 9h à 13h ! Souhaitez-vous réserver ? ✦</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ AVIS / INTERCEPTION ============ -->
+      <section class="avis" id="avis">
+        <div class="avis__grid">
+          <div class="avis__copy reveal-stagger">
+            <div class="section-eyebrow">Réputation</div>
+            <h2 class="section-title">Plus d'avis.<br />Que des bons.</h2>
+            <p class="lead">
+              Shake motive votre équipe à collecter plus d'avis grâce à la gamification, et
+              <b>intercepte les avis négatifs en privé</b> avant toute publication.
+            </p>
+            <div class="avis__badges">
+              <div class="mini-card"><span class="mini-card__n" data-count="4.9" data-decimals="1">0</span><small>note moyenne</small></div>
+              <div class="mini-card"><span class="mini-card__n" data-count="128">0</span><small>avis collectés</small></div>
+              <div class="mini-card"><span class="mini-card__n" data-count="312" data-suffix="%">0</span><small>de visibilité</small></div>
+            </div>
+          </div>
+          <div class="avis__visual reveal-scale">
+            <div class="shield">
+              <div class="shield__row good"><span>★★★★★</span> <b>Avis 5 étoiles</b> <i>publié →</i></div>
+              <div class="shield__row good"><span>★★★★★</span> <b>Avis 5 étoiles</b> <i>publié →</i></div>
+              <div class="shield__row bad"><span>★★☆☆☆</span> <b>Avis négatif</b> <i class="hold">intercepté ✕</i></div>
+              <div class="shield__seal">✦ Filtre privé</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ STATS COUNTERS ============ -->
+      <section class="stats">
+        <div class="stat"><span class="stat__n" data-count="24">0</span><i>/7</i><small>Production de contenu</small></div>
+        <div class="stat"><span class="stat__n" data-count="5">0</span><small>Moteurs IA couverts</small></div>
+        <div class="stat"><span class="stat__n" data-count="4">0</span><small>Canaux conversationnels</small></div>
+        <div class="stat"><span class="stat__n" data-count="19">0</span><i>€</i><small>Par mois, sans engagement</small></div>
+      </section>
+
+      <!-- ============ VERTICALS MARQUEE ============ -->
+      <section class="verticals">
+        <div class="verticals__head">
+          <div class="section-eyebrow">Pour qui ?</div>
+          <h2 class="section-title">Pensé pour les commerces<br />&amp; prestataires locaux</h2>
+        </div>
+        <div class="marquee marquee--slow" data-marquee>
+          <div class="marquee__track">
+            <span class="pill">Restaurants</span><span class="pill">Artisans</span><span class="pill">Santé</span>
+            <span class="pill">Immobilier</span><span class="pill">Salons de coiffure</span><span class="pill">Garages</span>
+            <span class="pill">Instituts de beauté</span><span class="pill">Cabinets</span><span class="pill">Boutiques</span>
+            <span class="pill">Restaurants</span><span class="pill">Artisans</span><span class="pill">Santé</span>
+            <span class="pill">Immobilier</span><span class="pill">Salons de coiffure</span><span class="pill">Garages</span>
+            <span class="pill">Instituts de beauté</span><span class="pill">Cabinets</span><span class="pill">Boutiques</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PRICING ============ -->
+      <section class="pricing" id="tarifs">
+        <div class="pricing__head reveal-up">
+          <div class="section-eyebrow">Tarifs</div>
+          <h2 class="section-title">Un prix. Tout inclus.</h2>
+          <p class="lead">Paiement mensuel, sans engagement. Testez tout, gratuitement, pendant 30 jours.</p>
+        </div>
+        <div class="price-card reveal-scale magnetic" data-cursor="hover">
+          <div class="price-card__glow"></div>
+          <div class="price-card__top">
+            <div class="price-card__plan">Shake · Tout-en-un</div>
+            <div class="price-card__amount"><b>19€</b><span>/ mois</span></div>
+          </div>
+          <ul class="price-card__list">
+            <li>Mini-site professionnel + domaine</li>
+            <li>Agents IA : SEO · Social · GEO</li>
+            <li>Collecte &amp; interception des avis</li>
+            <li>Agent conversationnel 24/7</li>
+            <li>Présence Google + moteurs IA</li>
+            <li>Gamification équipe</li>
+          </ul>
+          <a href="https://www.shakeagency.io/" class="btn btn--primary btn--block magnetic" data-cursor="hover"><span>Commencer 30 jours gratuits</span></a>
+          <div class="price-card__note">Sans carte requise · résiliable à tout moment</div>
+        </div>
+      </section>
+
+      <!-- ============ FINAL CTA ============ -->
+      <section class="cta">
+        <div class="cta__bg" aria-hidden="true"></div>
+        <h2 class="cta__title" data-words-cta>
+          Prêt à secouer<br />votre visibilité ?
+        </h2>
+        <a href="https://www.shakeagency.io/" class="btn btn--light btn--lg magnetic" data-cursor="hover"><span>Lancer mon essai gratuit</span></a>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+      <div class="footer__top">
+        <a class="footer__logo" href="#top"><span class="nav__mark">✦</span> Shake</a>
+        <p class="footer__tag">La visibilité locale, propulsée par l'IA.</p>
+      </div>
+      <div class="footer__cols">
+        <div class="footer__col">
+          <h4>Produit</h4>
+          <a href="#produit">La plateforme</a>
+          <a href="#agents">Agents IA</a>
+          <a href="#avis">Avis Google</a>
+          <a href="#tarifs">Tarifs</a>
+        </div>
+        <div class="footer__col">
+          <h4>Solutions</h4>
+          <a href="https://www.shakeagency.io/web">Création de site</a>
+          <a href="https://www.shakeagency.io/avis">Obtenir des avis</a>
+          <a href="https://www.shakeagency.io/jeu-concours-avis">Fidélité &amp; jeux</a>
+        </div>
+        <div class="footer__col">
+          <h4>Suivre</h4>
+          <a href="https://www.instagram.com/">Instagram</a>
+          <a href="https://www.facebook.com/shakeagency/">Facebook</a>
+          <a href="https://www.linkedin.com/company/shake-web-agency">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span id="year"></span> Shake — Tous droits réservés.</span>
+        <span class="footer__made">Conçu avec ✦ &amp; un peu d'IA</span>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

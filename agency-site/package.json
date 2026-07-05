@@ -1,0 +1,19 @@
+{
+  "name": "shake-agency-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site vitrine Shake — plateforme de visibilité locale propulsée par l'IA. Ultra-moderne, animations GSAP + smooth scroll Lenis, scroll vertical & horizontal, zooms automatiques.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.14"
+  },
+  "devDependencies": {
+    "vite": "^5.4.8"
+  }
+}
