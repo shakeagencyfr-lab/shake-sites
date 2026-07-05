@@ -1324,6 +1324,83 @@ body::after {
   font-family: var(--font-mono);
 }
 
+/* billing toggle */
+.billing {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  margin: 0 auto 30px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+.billing__pill {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: calc(100% - 10px);
+  width: 0;
+  border-radius: 999px;
+  background: var(--grad);
+  transition: transform 0.45s var(--ease), width 0.45s var(--ease);
+  z-index: 1;
+}
+.billing__opt {
+  position: relative;
+  z-index: 2;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14.5px;
+  color: var(--mut);
+  padding: 11px 22px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+.billing__opt.is-on {
+  color: #07070b;
+}
+.billing__opt:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+.billing__save {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(0, 212, 168, 0.16);
+  color: var(--teal);
+  transition: background 0.3s, color 0.3s;
+}
+.billing__opt.is-on .billing__save {
+  background: rgba(7, 7, 11, 0.22);
+  color: #07070b;
+}
+.price-card__billed {
+  position: relative;
+  margin: -14px 0 26px;
+  color: var(--faint);
+  font-size: 13px;
+  font-family: var(--font-mono);
+}
+.price-card__amount b {
+  transition: opacity 0.25s var(--ease);
+}
+.price-card__amount.is-swapping b {
+  opacity: 0;
+}
+
 /* ============ FINAL CTA ============ */
 .cta {
   position: relative;

@@ -460,6 +460,67 @@ function initCounters() {
 }
 
 /* ============================================================
+   11. BILLING TOGGLE — mensuel / annuel (2 mois offerts)
+   ============================================================ */
+function initBilling() {
+  const wrap = document.querySelector(".billing");
+  if (!wrap) return;
+  const pill = wrap.querySelector("[data-billing-pill]");
+  const opts = [...wrap.querySelectorAll(".billing__opt")];
+  const priceEl = document.querySelector("[data-price]");
+  const periodEl = document.querySelector("[data-period]");
+  const billedEl = document.querySelector("[data-billed]");
+
+  const DATA = {
+    monthly: { value: 19, decimals: 0, period: "/ mois", billed: "Facturé chaque mois · sans engagement" },
+    yearly: { value: 15.83, decimals: 2, period: "/ mois", billed: "190€ facturé une fois par an · 2 mois offerts" },
+  };
+  const fmt = (v, d) => (d ? v.toFixed(2).replace(".", ",") : String(Math.round(v))) + "€";
+
+  const movePill = (btn) => {
+    pill.style.width = btn.offsetWidth + "px";
+    pill.style.transform = `translateX(${btn.offsetLeft - 5}px)`;
+  };
+
+  let current = DATA.monthly.value;
+  const select = (btn, animate = true) => {
+    const key = btn.dataset.billing;
+    const d = DATA[key];
+    opts.forEach((o) => {
+      const on = o === btn;
+      o.classList.toggle("is-on", on);
+      o.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    movePill(btn);
+    periodEl.textContent = d.period;
+    billedEl.textContent = d.billed;
+
+    if (animate && !reduce) {
+      const obj = { v: current };
+      gsap.to(obj, {
+        v: d.value,
+        duration: 0.5,
+        ease: "power2.out",
+        onUpdate: () => {
+          priceEl.textContent = fmt(obj.v, obj.v % 1 === 0 ? 0 : 2);
+        },
+        onComplete: () => (priceEl.textContent = fmt(d.value, d.decimals)),
+      });
+    } else {
+      priceEl.textContent = fmt(d.value, d.decimals);
+    }
+    current = d.value;
+  };
+
+  opts.forEach((btn) => btn.addEventListener("click", () => select(btn)));
+
+  const active = () => wrap.querySelector(".billing__opt.is-on");
+  requestAnimationFrame(() => movePill(active()));
+  window.addEventListener("resize", () => movePill(active()));
+  if (document.fonts) document.fonts.ready.then(() => movePill(active()));
+}
+
+/* ============================================================
    BOOT
    ============================================================ */
 function boot() {
@@ -476,6 +537,7 @@ function boot() {
   initShowcase(mm);
   initReveals();
   initCounters();
+  initBilling();
 
   // keep triggers in sync after fonts/layout settle
   ScrollTrigger.refresh();

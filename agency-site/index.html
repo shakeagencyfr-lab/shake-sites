@@ -323,14 +323,26 @@
         <div class="pricing__head reveal-up">
           <div class="section-eyebrow">Tarifs</div>
           <h2 class="section-title">Un prix. Tout inclus.</h2>
-          <p class="lead">Paiement mensuel, sans engagement. Testez tout, gratuitement, pendant 30 jours.</p>
+          <p class="lead">Mensuel ou annuel, sans engagement. Testez tout, gratuitement, pendant 30 jours.</p>
         </div>
+
+        <div class="billing reveal-up" role="tablist" aria-label="Fréquence de facturation">
+          <span class="billing__pill" data-billing-pill></span>
+          <button class="billing__opt is-on" data-billing="monthly" role="tab" aria-selected="true" data-cursor="hover">Mensuel</button>
+          <button class="billing__opt" data-billing="yearly" role="tab" aria-selected="false" data-cursor="hover">
+            Annuel <span class="billing__save">2 mois offerts</span>
+          </button>
+        </div>
+
         <div class="price-card reveal-scale magnetic" data-cursor="hover">
           <div class="price-card__glow"></div>
           <div class="price-card__top">
             <div class="price-card__plan">Shake · Tout-en-un</div>
-            <div class="price-card__amount"><b>19€</b><span>/ mois</span></div>
+            <div class="price-card__amount">
+              <b data-price>19€</b><span data-period>/ mois</span>
+            </div>
           </div>
+          <div class="price-card__billed" data-billed>Facturé chaque mois · sans engagement</div>
           <ul class="price-card__list">
             <li>Mini-site professionnel + domaine</li>
             <li>Agents IA : SEO · Social · GEO</li>
