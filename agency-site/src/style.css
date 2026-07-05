@@ -1417,11 +1417,31 @@ body::after {
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 900px) {
+  /* horizontal scroll is desktop-only → stack the panels vertically on mobile */
+  .horizon__pin {
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    overflow: visible;
+    padding: 80px clamp(18px, 5vw, 40px);
+    gap: 20px;
+    transform: none !important;
+  }
+  .horizon__head {
+    width: auto;
+    margin-bottom: 6px;
+  }
+  .horizon__progress {
+    display: none;
+  }
   .panel {
     grid-template-columns: 1fr;
+    width: 100%;
   }
   .panel__visual {
     min-height: 220px;
+    transform: none !important;
+    opacity: 1 !important;
   }
   .showcase__sticky {
     grid-template-columns: 1fr;
@@ -1462,6 +1482,11 @@ body::after {
   }
   .hero__eyebrow {
     font-size: 11px;
+  }
+  .price-card__top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
   }
 }
 
