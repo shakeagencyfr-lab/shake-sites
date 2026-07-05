@@ -473,7 +473,7 @@ function initBilling() {
 
   const DATA = {
     monthly: { value: 19, decimals: 0, period: "/ mois", billed: "Facturé chaque mois · sans engagement" },
-    yearly: { value: 15.83, decimals: 2, period: "/ mois", billed: "190€ facturé une fois par an · 2 mois offerts" },
+    yearly: { value: 190, decimals: 0, period: "/ an", billed: "2 mois offerts · soit 15,83€/mois" },
   };
   const fmt = (v, d) => (d ? v.toFixed(2).replace(".", ",") : String(Math.round(v))) + "€";
 
