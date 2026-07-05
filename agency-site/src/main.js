@@ -39,14 +39,28 @@ function runPreloader(onDone) {
   const bar = document.getElementById("preBar");
   const letters = document.querySelectorAll(".preloader__word span");
 
-  if (reduce) {
+  const hide = () => {
     pre.style.display = "none";
+  };
+
+  if (reduce) {
+    hide();
     onDone();
     return;
   }
-  if (lenis) lenis.stop();
 
-  const tl = gsap.timeline({ onComplete: onDone });
+  // Hard safety net: never let the preloader trap the page, whatever happens.
+  const failSafe = setTimeout(() => {
+    hide();
+    onDone();
+  }, 3500);
+
+  const tl = gsap.timeline({
+    onComplete: () => {
+      clearTimeout(failSafe);
+      onDone();
+    },
+  });
   const counter = { v: 0 };
 
   tl.to(letters, { y: 0, duration: 0.7, stagger: 0.06, ease: "power3.out" }, 0.1)
@@ -66,10 +80,7 @@ function runPreloader(onDone) {
     )
     .to(letters, { y: "-110%", duration: 0.6, stagger: 0.04, ease: "power3.in" }, 2.0)
     .to(pre, { yPercent: -100, duration: 0.9, ease: "power4.inOut" }, 2.3)
-    .set(pre, { display: "none" })
-    .add(() => {
-      if (lenis) lenis.start();
-    });
+    .add(hide);
 }
 
 /* ============================================================
@@ -159,19 +170,24 @@ function initNav() {
    5. HERO — title reveal + auto-zoom out on scroll
    ============================================================ */
 function initHero() {
+  // words are visible by default (CSS) — JS animates them IN via .from,
+  // so if scripts never run the hero still reads normally.
   const words = document.querySelectorAll(".hero__title .w");
-  gsap.to(words, {
-    y: 0,
+  gsap.from(words, {
+    yPercent: 110,
     duration: 1,
     stagger: 0.08,
     ease: "power4.out",
     delay: reduce ? 0 : 0.1,
   });
-  gsap.fromTo(
-    ".reveal-up",
-    { y: 30, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.9, stagger: 0.12, ease: "power3.out", delay: 0.5 }
-  );
+  gsap.from(".reveal-up", {
+    y: 30,
+    opacity: 0,
+    duration: 0.9,
+    stagger: 0.12,
+    ease: "power3.out",
+    delay: 0.5,
+  });
 
   if (reduce) return;
 
@@ -300,6 +316,8 @@ function initHorizontal(mm) {
     const pin = document.querySelector("[data-horizon]");
     const section = document.querySelector(".horizon");
     if (!pin) return;
+    // Switch off the no-JS vertical fallback → enable the real pinned layout.
+    document.documentElement.classList.add("js-ready");
     const bar = pin.querySelector("[data-horizon-bar]");
 
     const getDistance = () => pin.scrollWidth - window.innerWidth;

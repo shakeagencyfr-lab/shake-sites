@@ -475,7 +475,6 @@ body::after {
 }
 .hero__title .w {
   display: inline-block;
-  transform: translateY(110%);
 }
 .hero__sub {
   color: var(--mut);
@@ -1565,6 +1564,37 @@ body::after {
     align-items: flex-start;
     gap: 6px;
   }
+}
+
+/* ============ NO-JS / FAILSAFE ============ */
+/* If scripts are blocked or slow, the preloader must never trap the page. */
+.preloader {
+  animation: preloaderFailsafe 0.6s ease 4.2s forwards;
+}
+@keyframes preloaderFailsafe {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+/* Desktop horizontal section falls back to a readable vertical stack
+   when the pin/translate script hasn't run. */
+html:not(.js-ready) .horizon__pin {
+  height: auto;
+  overflow: visible;
+  flex-direction: column;
+  align-items: stretch;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  gap: 20px;
+}
+html:not(.js-ready) .horizon__head,
+html:not(.js-ready) .panel {
+  width: 100%;
+}
+html:not(.js-ready) .horizon__progress {
+  display: none;
 }
 
 /* ============ REDUCED MOTION ============ */
